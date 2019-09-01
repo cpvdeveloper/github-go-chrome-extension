@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="index.js"></script>
+    <link rel="stylesheet" href="index.css">
+  </head>
+  <body>
+    <h3>GitHub profile: <span class="github-profile"></span></h3>
+    
+    <div class="profile-update-form">
+      <input id="profile-update-input" type="text" placeholder="Enter new GitHub profile">
+      <button id='profile-update-button'>Update</button>
+    </div>
+
+    <div id="repos-container">
+      <h3>Repositories:</h3>
+      <ul class="repo-list"></ul>
+
+      <div class="repo-add-form">
+        <input id="repo-add-input" type="text" placeholder="Add a new repo">
+        <button id="repo-add-button">Add</button>
+      </div>
+    </div>
+
+    <button id="reset-repos-button">Reset all</button>
+    <div id="reset-repos-message" class="hide">
+      <p>Are you sure?</p>
+      <button id="reset-no-button">No</button>
+      <button id="reset-yes-button">Yes</button>
+    </div>
+
+  </body>
+</html>

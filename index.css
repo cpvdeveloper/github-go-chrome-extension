@@ -1,0 +1,53 @@
+body {
+  padding: 10px;
+  font-family: Helvetica, sans-serif;
+  width: 250px;
+}
+
+input[type=text] {
+  width: 65%;
+  padding: 5px; 
+  border: 1px solid #ccc; 
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+}
+
+button {
+  border: 0.5px solid #ccc;
+  border-radius: 3px;
+  width: 25%;
+}
+
+.profile-update-form {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.github-profile {
+  font-family: monospace;
+  font-size: x-large;
+  font-weight: lighter;
+  margin-left: 0.25rem;
+}
+
+.repos-container {
+  display: block;
+}
+
+.repo-list {
+  padding: 2px;
+}
+
+.repo-item {
+  list-style: none;
+  padding-bottom: 0.25rem;
+  font-family: monospace;
+  font-size: 1.25rem;
+}
+
+.repo-add-form {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
