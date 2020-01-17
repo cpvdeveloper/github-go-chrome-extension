@@ -19,7 +19,11 @@ chrome.omnibox.onInputStarted.addListener(
 
 chrome.omnibox.onInputChanged.addListener(
   (text, suggest) => {
-    const repos = text.length ? storedRepos.filter(repo => repo.includes(text)) : storedRepos
+    const repos = text.length ? storedRepos.filter(repo => {
+      const searchTerm = text.toLowerCase()
+      const doesMatch = repo.toLowerCase().includes(searchTerm)
+      return doesMatch
+    }) : storedRepos
     const suggestions = repos.map(repo => ({
       content: repo, description: repo
     }))
