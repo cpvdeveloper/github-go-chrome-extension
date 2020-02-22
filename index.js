@@ -23,7 +23,7 @@ function setGithubProfile(profileName) {
 
 function addNewRepo() {
   const newRepoInput = document.getElementById('repo-add-input')
-  const repoName = newRepoInput.value
+  const repoName = newRepoInput.value.trimStart()
   if (repoName.length) {
     chrome.storage.sync.get('githubRepos', storage => {
       let newGithubRepos
