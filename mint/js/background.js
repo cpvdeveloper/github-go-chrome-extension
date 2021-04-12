@@ -1,36 +1,43 @@
-// const BASE_URL = "https://github.com";
-// const STORAGE_PROFILE = "githubProfile";
-// const STORAGE_REPOS = "githubRepos";
+const BASE_URL = "https://github.com";
+const STORAGE_PROFILE = "githubProfile";
+const STORAGE_REPOS = "githubRepos";
 
-// let storedGithubProfile;
-// let storedRepos = [];
+let storedGithubProfile;
+let storedRepos = [];
 
-// chrome.omnibox.onInputStarted.addListener(() => {
-//   chrome.storage.sync.get([STORAGE_PROFILE, STORAGE_REPOS], (storage) => {
-//     if (storage.githubProfile) {
-//       storedGithubProfile = storage.githubProfile;
+const reposToSuggestions = (repos) => {
+  return repos.map((repoName) => ({
+    content: repoName,
+    description: repoName,
+  }));
+};
 
-//       if (storage.githubRepos) {
-//         storedRepos = storage.githubRepos;
-//       }
-//     }
-//   });
-// });
+chrome.omnibox.onInputStarted.addListener(() => {
+  chrome.storage.sync.get([STORAGE_PROFILE, STORAGE_REPOS], (storage) => {
+    if (storage.githubProfile) {
+      storedGithubProfile = storage.githubProfile;
 
-// chrome.omnibox.onInputChanged.addListener((text, suggest) => {
-//   if (!text || !text.length) return storedRepos;
-//   const filteredRepos = storedRepos.filter((repoName) => {
-//     const searchTerm = text.toLowerCase();
-//     const doesMatch = repoName.toLowerCase().includes(searchTerm);
-//     return doesMatch;
-//   });
-//   const suggestions = filteredRepos.map((repoName) => ({
-//     content: repoName,
-//     description: repoName,
-//   }));
-//   suggest(suggestions);
-// });
+      if (storage.githubRepos) {
+        storedRepos = storage.githubRepos;
+      }
+    }
+  });
+});
 
-// chrome.omnibox.onInputEntered.addListener((text) =>
-//   chrome.tabs.update({ url: `${BASE_URL}/${storedGithubProfile}/${text}` })
-// );
+chrome.omnibox.onInputChanged.addListener((text, suggest) => {
+  if (!text || text.length === 0) {
+    const allSuggestions = reposToSuggestions(storedRepos);
+    return suggest(allSuggestions);
+  }
+  const filteredRepos = storedRepos.filter((repoName) => {
+    const searchTerm = text.toLowerCase();
+    const doesMatch = repoName.toLowerCase().includes(searchTerm);
+    return doesMatch;
+  });
+  const suggestions = reposToSuggestions(filteredRepos);
+  return suggest(suggestions);
+});
+
+chrome.omnibox.onInputEntered.addListener((text) =>
+  chrome.tabs.update({ url: `${BASE_URL}/${storedGithubProfile}/${text}` })
+);
