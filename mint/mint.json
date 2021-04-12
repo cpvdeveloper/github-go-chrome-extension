@@ -12,7 +12,6 @@
   ],
   "external": {
     "javascripts": [
-      "js/background.js",
       "js/index.js"
     ],
     "stylesheets": [
