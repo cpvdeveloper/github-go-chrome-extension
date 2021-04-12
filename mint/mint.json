@@ -1,0 +1,22 @@
+{
+  "name": "github-go-mint",
+  "application": {
+    "head": "assets/head.html",
+    "title": "github-go-mint"
+  },
+  "source-directories": [
+    "source"
+  ],
+  "test-directories": [
+    "tests"
+  ],
+  "external": {
+    "javascripts": [
+      "js/background.js",
+      "js/index.js"
+    ],
+    "stylesheets": [
+      "css/index.css"
+    ]
+  }
+}

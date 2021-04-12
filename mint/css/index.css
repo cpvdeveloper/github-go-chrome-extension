@@ -1,0 +1,6 @@
+body {
+  font-family: Helvetica, sans-serif;
+  width: 275px;
+  padding: 10px;
+  overflow-y: scroll;
+}
