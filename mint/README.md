@@ -13,3 +13,14 @@ Activate the extension by typing "gh" followed by a space; you can then either
 - Hit space again to see the full list of saved repositories
 - Enter the exact name of a repository
 - Hit space and then enter to go to the target GitHub account itself
+
+## What it looks like
+
+Keeping the CSS simple...
+
+<table>
+  <tr>
+    <td width=320><img src="../screenshot-1.png" width=270></td>
+    <td width=320><img src="../screenshot-2.png" width=270></td>
+  </tr>
+</table>
