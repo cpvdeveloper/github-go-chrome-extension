@@ -1,6 +1,6 @@
 {
   "name": "GitHubGo",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A Github Chrome extension built with Mint",
   "manifest_version": 2,
   "omnibox": {
@@ -11,7 +11,9 @@
   },
   "background": {
     "persistent": false,
-    "scripts": ["background.js"]
+    "scripts": [
+      "background.js"
+    ]
   },
   "browser_action": {
     "default_popup": "index.html"

@@ -9,10 +9,10 @@ Omnibox extension to help you go straight to a GitHub repository.
 
 Activate the extension by typing "gh" followed by a space; you can then either
 
-- Filter through your list of saved repositories
+- Filter through your list of saved repositories and go
+- Input the exact name of a repository and go
 - Hit space again to see the full list of saved repositories
-- Enter the exact name of a repository
-- Hit space and then enter to go to the target GitHub account itself
+- Hit enter to go to the target GitHub account itself
 
 ## How it's built
 

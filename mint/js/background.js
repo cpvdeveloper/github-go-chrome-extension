@@ -38,6 +38,10 @@ chrome.omnibox.onInputChanged.addListener((text, suggest) => {
   return suggest(suggestions);
 });
 
-chrome.omnibox.onInputEntered.addListener((text) =>
-  chrome.tabs.update({ url: `${BASE_URL}/${storedGithubProfile}/${text}` })
-);
+chrome.omnibox.onInputEntered.addListener((text) => {
+  let githubUrl = `${BASE_URL}/${storedGithubProfile}`;
+  if (text) {
+    githubUrl += `/${text}`;
+  }
+  chrome.tabs.update({ url: githubUrl })
+})
